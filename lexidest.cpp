@@ -11,13 +11,9 @@
 #include <unistd.h>
 #include <vector>
 
-int x=1;
-
 void do_heartbeat()
 {
-   // TODO: implement processing code to be performed on each heartbeat
    syslog(LOG_NOTICE, "Heartbeat...");
-   x++;
 }
 
 // For security purposes, we don't allow any arguments to be passed into the daemon
@@ -45,8 +41,8 @@ int main(void)
    umask(0);
 
    // Open system logs for the child process
-   openlog("daemon-named", LOG_NOWAIT | LOG_PID, LOG_USER);
-   syslog(LOG_NOTICE, "Successfully started daemon-name");
+   openlog("Lexidest", LOG_NOWAIT | LOG_PID, LOG_USER);
+   syslog(LOG_NOTICE, "Successfully started Lexidest");
 
    // Generate a session ID for the child process
    sid = setsid();
@@ -88,13 +84,10 @@ int main(void)
 
       // Sleep for a period of time
       sleep(SLEEP_INTERVAL);
-      if(x==5){
-          break;
-      }
    }
 
    // Close system logs for the child process
-   syslog(LOG_NOTICE, "Stopping daemon-name");
+   syslog(LOG_NOTICE, "Stopping Lexidest");
    closelog();
 
    // Terminate the child process when the daemon completes

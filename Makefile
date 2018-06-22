@@ -1,13 +1,13 @@
 CC  = g++
 CFLAGS  = -I. -Wall
 
-all: daemon-name clean
+all: lexidest.out clean
 
-daemon-name: daemon-name.o
+lexidest.out: lexidest.o
 	$(CC) -o $@ $^
-	chmod 700 daemon-name
+	chmod 700 lexidest.out
 
-daemon-name.o: daemon-name.cpp
+lexidest.o: lexidest.cpp
 	$(CC) -c $(CFLAGS) $<
 
 clean:
