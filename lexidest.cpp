@@ -11,9 +11,17 @@
 #include <unistd.h>
 #include <vector>
 
+bool fileExists(const std::string& file) {
+    struct stat buf;
+    return (stat(file.c_str(), &buf) == 0);
+}
+
 void do_heartbeat()
 {
-   system("~/.lexidest/script.sh");
+   std::string lockfile = "/tmp/lexilock";
+   if(fileExists(lockfile)){
+	system("bash ~/.lexidest/script.sh");
+   }
 }
 
 // For security purposes, we don't allow any arguments to be passed into the daemon

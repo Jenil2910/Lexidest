@@ -19,3 +19,4 @@ if [ -n "$CUR" ] && [ "$CUR" != "$PREV" ] && [ "$WORDS" = "1" ] ; then
 fi
 
 echo $CUR > .temp
+rm -rf /tmp/lexilock
