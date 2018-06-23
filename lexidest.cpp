@@ -19,7 +19,7 @@ bool fileExists(const std::string& file) {
 void do_heartbeat()
 {
    std::string lockfile = "/tmp/lexilock";
-   if(fileExists(lockfile)){
+   if(!fileExists(lockfile)){
 	system("bash ~/.lexidest/script.sh");
    }
 }

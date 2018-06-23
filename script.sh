@@ -1,3 +1,4 @@
+touch /tmp/lexilock
 LEX_DIR="/home/$USER/.lexidest"
 cd "$LEX_DIR"
 EXIT_STATUS="$?"
