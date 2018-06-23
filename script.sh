@@ -1,3 +1,4 @@
+touch /tmp/lexilock
 LEX_DIR="/home/$USER/.lexidest"
 cd "$LEX_DIR"
 EXIT_STATUS="$?"
@@ -19,3 +20,4 @@ if [ -n "$CUR" ] && [ "$CUR" != "$PREV" ] && [ "$WORDS" = "1" ] ; then
 fi
 
 echo $CUR > .temp
+rm -rf /tmp/lexilock
