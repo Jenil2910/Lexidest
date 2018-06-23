@@ -1,3 +1,4 @@
+#!/bin/bash
 touch /tmp/lexilock
 LEX_DIR="/home/$USER/.lexidest"
 cd "$LEX_DIR"
