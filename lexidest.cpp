@@ -20,7 +20,7 @@ void do_heartbeat()
 {
    std::string lockfile = "/tmp/lexilock";
    if(!fileExists(lockfile)){
-	system("bash ~/.lexidest/script.sh");
+	system("~/.lexidest/script.sh");
    }
 }
 
@@ -84,6 +84,7 @@ int main(void)
    // Daemon-specific intialization should go here
    const int SLEEP_INTERVAL = 1;
 
+   system("rm -rf /tmp/lexilock");
    // Enter daemon loop
    while(1)
    {
