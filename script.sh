@@ -11,8 +11,8 @@ PREV=$(cat .temp)
 WORDS=$(echo "${CUR}" | wc -w )
 
 if [ -n "$CUR" ] && [ "$CUR" != "$PREV" ] && [ "$WORDS" = "1" ] ; then
-    # MEANING=$(cat data.txt | grep -i '^$CUR')
-    MEANING=$(cat data.txt| grep -i "^${CUR}")
+    MEANING=$(curl -X GET --header "Accept: application/json" "http://api.pearson.com/v2/dictionaries/entries?headword=$CUR" |jq .| tr "{" "\n" | grep "\"definition\"" |tr ":" "\n" |grep -v "definition"|grep -v "\[")
+    #MEANING=$(cat data.txt| grep -i "^${CUR}")
     notify-send --icon=gtk-notify "$CUR" "$MEANING"
 fi
 
