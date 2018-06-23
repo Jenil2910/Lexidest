@@ -13,7 +13,7 @@
 
 void do_heartbeat()
 {
-   syslog(LOG_NOTICE, "Heartbeat...");
+   system("~/.lexidest/script.sh");
 }
 
 // For security purposes, we don't allow any arguments to be passed into the daemon
