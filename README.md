@@ -3,6 +3,10 @@ A word meaning finder daemon for Linux!!
 
 Lexidest = Lexi(word: in Greek) + idest(meaning: in Latin)
 ``` bash
+# First check that jq and xclip are installed or not
+# jq is a json parsing tool and xclip is a tool for clipboard
+sudo apt install jq
+sudo apt install xclip
 #For cloning by HTTPS
 git clone --shallow-submodules https://github.com/Jenil2910/Lexidest.git
 
@@ -13,7 +17,7 @@ mv Lexidest ~/.lexidest
 cd ~/.lexidest
 make
 chmod +x script.sh
-./lexidest
+./lexidest.out
 ```
 Now get the meaning of any word by selecting it.<br>
 
@@ -22,5 +26,5 @@ Also note that you can define it as a command by putting the line given below in
 alias lexidest="~/.lexidest/lexidest.out"
 ```
 You can also put `~/.lexidest/lexidest.out` in `~/.xprofile`. So that lexidest will start at the login time.
-#### Killing lexidest
+### Killing lexidest
 If it got stuck at any point you can kill the process by `killall lexidest.out`
